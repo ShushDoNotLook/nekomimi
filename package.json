@@ -1,5 +1,5 @@
 {
-  "name": "nekomimi",
+  "name": "solace",
   "productName": "Solace",
   "version": "1.7.2",
   "description": "The anime game launcher",
@@ -53,7 +53,7 @@
     "vite": "^6.0.0"
   },
   "build": {
-    "appId": "com.jeffreyqin.nekomimi",
+    "appId": "com.jeffreyqin.solace",
     "productName": "Solace",
     "icon": "resources/icon.png",
     "directories": {

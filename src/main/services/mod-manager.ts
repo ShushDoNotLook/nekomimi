@@ -218,7 +218,7 @@ async function fetchGitHubRelease(apiUrl: string): Promise<GitHubRelease | null>
       apiUrl,
       {
         headers: {
-          'User-Agent': 'Nekomimi-Launcher',
+          'User-Agent': 'Solace-Launcher',
           Accept: 'application/vnd.github.v3+json',
         },
       },

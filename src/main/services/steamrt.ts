@@ -50,7 +50,7 @@ export function isSteamrtInstalled(): boolean {
   return existsSync(join(getSteamrtPath(), '_v2-entry-point'))
 }
 
-/** Returns the path to the steamrt installation, checking nekomimi's managed path first,
+/** Returns the path to the steamrt installation, checking solace's managed path first,
  *  then umu-launcher's, then vanilla Steam's. Returns null if none found. */
 export function findSteamrt(): string | null {
   const candidates = [

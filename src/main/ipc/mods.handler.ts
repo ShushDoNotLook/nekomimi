@@ -158,7 +158,7 @@ export const registerModsHandlers = () => {
       const modsPath = getModsPath(importer)
       fs.mkdirSync(modsPath, { recursive: true })
       ensureModsWatcher(importer)
-      const markerPath = path.join(modsPath, '.nekomimi')
+      const markerPath = path.join(modsPath, '.solace')
       if (!fs.existsSync(markerPath)) {
         fs.writeFileSync(markerPath, '')
       }

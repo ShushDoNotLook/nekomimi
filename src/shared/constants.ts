@@ -2,7 +2,7 @@
 // Path resolution happens in src/main/services/paths.ts
 
 // App metadata
-export const APP_NAME = 'nekomimi'
+export const APP_NAME = 'solace'
 export const APP_DISPLAY_NAME = 'Solace'
 
 // Config file name

@@ -60,7 +60,7 @@ export async function extractArchive(options: ExtractOptions): Promise<void> {
 
   fs.mkdirSync(dest, { recursive: true })
 
-  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'nekomimi-archive-'))
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'solace-archive-'))
   try {
     await extractWith7z(src, tempDir)
 

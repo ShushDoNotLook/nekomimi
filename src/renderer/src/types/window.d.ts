@@ -2,7 +2,7 @@
 
 import type { IPCChannels, IPCRequest, IPCResponse } from '../../../shared/types/ipc'
 
-interface NekomimiAPI {
+interface SolaceAPI {
   invoke: <K extends keyof IPCChannels>(
     channel: K,
     request?: IPCRequest<K>
@@ -16,7 +16,7 @@ interface NekomimiAPI {
 
 declare global {
   interface Window {
-    api: NekomimiAPI
+    api: SolaceAPI
   }
 }
 

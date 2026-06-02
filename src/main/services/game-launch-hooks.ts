@@ -87,11 +87,11 @@ function validateStandaloneWuwaConfig(game: Game): string | null {
   if (game.slug !== 'wuwa') return null
 
   if (isTwintailManagedPath(game.runner.path)) {
-    return 'WuWa runner still points at Twintail-managed storage. Move it to a nekomimi-managed runner before launching.'
+    return 'WuWa runner still points at Twintail-managed storage. Move it to a solace-managed runner before launching.'
   }
 
   if (isTwintailManagedPath(game.runner.prefix)) {
-    return 'WuWa prefix still points at Twintail-managed storage. Move it to a nekomimi-managed prefix before launching.'
+    return 'WuWa prefix still points at Twintail-managed storage. Move it to a solace-managed prefix before launching.'
   }
 
   return null

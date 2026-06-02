@@ -127,7 +127,7 @@ function resolveRunnerPrefix(game: Game): string {
     return configuredPrefix
   }
 
-  const generatedPrefix = join(homedir(), '.local', 'share', 'nekomimi', 'prefixes', game.slug, 'pfx')
+  const generatedPrefix = join(homedir(), '.local', 'share', 'solace', 'prefixes', game.slug, 'pfx')
   mkdirSync(generatedPrefix, { recursive: true })
   return generatedPrefix
 }

@@ -11,17 +11,17 @@ const WUWA_REQUIRED_STEAM_COMPAT_FLAGS = ['noopwr', 'noxalia'] as const
 export const DEFAULT_WUWA_WWMI_LAUNCH_MODE: WuwaWwmiLaunchMode = 'direct'
 
 export const WWMI_ENGINE_INI_OVERRIDE = 'Kuro_Please_Add_Force_LOD0_For_Characters_To_Settings_Engine.ini'
-export const WUWA_ENGINE_INI_NAME = 'Nekomimi_Engine.ini'
+export const WUWA_ENGINE_INI_NAME = 'Solace_Engine.ini'
 export const WWMI_DIRECT_LAUNCH_ARGS = ['-dx11', `-ENGINEINI=${WUWA_ENGINE_INI_NAME}`]
 export const WUWA_ENGINE_INI_LAUNCH_ARG = `-EngineIni=${WUWA_ENGINE_INI_NAME}`
 // Disable lsteamclient to avoid Steam client dependency. Disable KRSDKExternal.exe
 // (Kuro telemetry SDK) which burns ~1 full CPU core at runtime with no gameplay impact.
 // jsproxy is left at Wine defaults — blocking it may interfere with proxy-dependent HTTP.
 export const WWMI_KURO_DLL_OVERRIDES = 'lsteamclient=d;KRSDKExternal.exe=d'
-const WUWA_HOSTS_BLOCK_START = '# nekomimi-wuwa-ipv4-start'
-const WUWA_HOSTS_BLOCK_END = '# nekomimi-wuwa-ipv4-end'
-const WUWA_ENGINE_CONFIG_SOURCE_START = '; nekomimi-wuwa-engine-config-start'
-const WUWA_ENGINE_CONFIG_SOURCE_END = '; nekomimi-wuwa-engine-config-end'
+const WUWA_HOSTS_BLOCK_START = '# solace-wuwa-ipv4-start'
+const WUWA_HOSTS_BLOCK_END = '# solace-wuwa-ipv4-end'
+const WUWA_ENGINE_CONFIG_SOURCE_START = '; solace-wuwa-engine-config-start'
+const WUWA_ENGINE_CONFIG_SOURCE_END = '; solace-wuwa-engine-config-end'
 const ALTERIAX_WUWA_CONFIG_1 = `; Lower FPS compared to default due to view distance increase
 
 ; If motion blur is turning back on even with in-game settings off add the command below
@@ -534,8 +534,8 @@ export function ensureWuwaEngineConfig(game: Pick<Game, 'slug' | 'directory' | '
   const existingModfixConfig = readExistingWwmiModfixConfig(binariesDir)
   const managedContent = [
     WUWA_ENGINE_CONFIG_SOURCE_START,
-    '; Managed by nekomimi for nekomimi launches only.',
-    `; AlteriaX/WuWa-Configs variant: Config ${variant}. Set NEKOMIMI_WUWA_ENGINE_CONFIG=1-5 before launch to switch.`,
+    '; Managed by solace for solace launches only.',
+    `; AlteriaX/WuWa-Configs variant: Config ${variant}. Set SOLACE_WUWA_ENGINE_CONFIG=1-5 before launch to switch.`,
     '',
     content.trim(),
     '',
@@ -549,7 +549,7 @@ export function ensureWuwaEngineConfig(game: Pick<Game, 'slug' | 'directory' | '
         ].join('\n')
       : '',
     '',
-    '; nekomimi GPU performance overrides. Last wins in UE4 — these take priority over any WWMI content above.',
+    '; solace GPU performance overrides. Last wins in UE4 — these take priority over any WWMI content above.',
     WUWA_GPU_PERF_CONFIG.trim(),
     WUWA_ENGINE_CONFIG_SOURCE_END,
     '',
@@ -558,7 +558,7 @@ export function ensureWuwaEngineConfig(game: Pick<Game, 'slug' | 'directory' | '
   const wroteEngineIni = writeFileIfChanged(path.join(binariesDir, WUWA_ENGINE_INI_NAME), managedContent)
 
   if (wroteEngineIni) {
-    console.log(`[wuwa] Updated combined nekomimi Engine.ini Config ${variant}: ${binariesDir}`)
+    console.log(`[wuwa] Updated combined solace Engine.ini Config ${variant}: ${binariesDir}`)
   }
 
   const wroteInputIni = ensureWuwaInputConfig(game)
