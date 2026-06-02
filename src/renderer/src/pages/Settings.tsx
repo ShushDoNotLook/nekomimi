@@ -1,5 +1,6 @@
 import { useEffect, useState, type JSX } from 'react'
 import { Button } from '@/components/ui/button'
+import { APP_DISPLAY_NAME } from '../../../shared/constants'
 import type { AppConfig } from '../../../shared/types/config'
 import type { RunnerStatus } from '../../../shared/types/runner'
 
@@ -279,7 +280,7 @@ function Settings(): JSX.Element {
       <section>
         <h2 className="text-lg font-medium mb-4 text-zinc-300">About</h2>
         <div className="text-zinc-400 text-sm space-y-1">
-          <p>Nekomimi v{version}</p>
+          <p>{APP_DISPLAY_NAME} v{version}</p>
           <p>The anime game launcher for people who simp too hard.</p>
         </div>
       </section>

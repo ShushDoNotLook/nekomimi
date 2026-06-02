@@ -1,6 +1,6 @@
 {
   "name": "nekomimi",
-  "productName": "Nekomimi",
+  "productName": "Solace",
   "version": "1.7.2",
   "description": "The anime game launcher",
   "license": "MIT",
@@ -54,7 +54,7 @@
   },
   "build": {
     "appId": "com.jeffreyqin.nekomimi",
-    "productName": "Nekomimi",
+    "productName": "Solace",
     "icon": "resources/icon.png",
     "directories": {
       "output": "release"

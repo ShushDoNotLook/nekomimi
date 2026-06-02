@@ -208,7 +208,7 @@ export function SettingsPanel({
           <DialogHeader>
             <DialogTitle>Import from TwintailLauncher</DialogTitle>
             <DialogDescription>
-              Copy selected data out of TwintailLauncher into nekomimi-managed storage.
+              Copy selected data out of TwintailLauncher into Solace-managed storage.
             </DialogDescription>
           </DialogHeader>
 

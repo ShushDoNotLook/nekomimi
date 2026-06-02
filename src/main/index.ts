@@ -73,7 +73,7 @@ protocol.registerSchemesAsPrivileged([
 ])
 
 const createWindow = async (): Promise<void> => {
-  console.log('Starting Nekomimi main process', {
+  console.log('Starting Solace main process', {
     shouldPreferDevServer,
     cwd: process.cwd(),
     dirname: __dirname,
@@ -134,7 +134,7 @@ const createWindow = async (): Promise<void> => {
     height: 800,
     minWidth: 800,
     minHeight: 600,
-    title: 'Nekomimi',
+    title: 'Solace',
     icon: getAppIconPath(),
     show: false,
     autoHideMenuBar: true,

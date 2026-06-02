@@ -98,7 +98,7 @@ export function initTray(mainWindow: BrowserWindow): void {
 
   try {
     tray = new Tray(loadTrayIcon())
-    tray.setToolTip('Nekomimi')
+    tray.setToolTip('Solace')
     tray.on('click', toggleMainWindow)
     rebuildTrayMenu()
   } catch (error) {

@@ -3,6 +3,7 @@
 
 // App metadata
 export const APP_NAME = 'nekomimi'
+export const APP_DISPLAY_NAME = 'Solace'
 
 // Config file name
 export const CONFIG_FILE = 'config.yml'

@@ -34,7 +34,7 @@ import {
 } from '@/lib/app-shell'
 import { INITIAL_SECTIONS, INITIAL_SELECTION, type SectionState, type Selection } from '@/types/app-shell'
 import { getXXMIImporter } from './utils/mods'
-import { APP_NAME } from '../../shared/constants'
+import { APP_DISPLAY_NAME } from '../../shared/constants'
 import type { Game } from '../../shared/types/game'
 
 function getGameImporter(game: Game): string | null { return game.mods.importer ?? getXXMIImporter(game.executable) }
@@ -406,7 +406,7 @@ function App(): JSX.Element {
   return (
     <div className="tui-shell">
       <header className="tui-topbar">
-        <div>{`${APP_NAME.toUpperCase()} v${displayVersion}`}</div>
+        <div>{`${APP_DISPLAY_NAME.toUpperCase()} v${displayVersion}`}</div>
         <div>{topStatus}</div>
         <div>{formatStamp(clock)}</div>
       </header>

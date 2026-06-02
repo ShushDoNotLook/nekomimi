@@ -149,7 +149,7 @@ export function AppDetailPane({
   if (gamesLoading || configLoading) {
     return (
       <div className="tui-terminal-panel tui-terminal-full">
-        loading nekomimi workspace...
+        loading Solace workspace...
       </div>
     )
   }
