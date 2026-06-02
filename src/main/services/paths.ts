@@ -19,16 +19,34 @@ export function expandHome(value: string): string {
 }
 
 // Base directory for all app data.
-// Use one stable location in both dev and packaged runs so local testing sees
-// the same library/config without depending on the current working directory.
-// Set NEKOMIMI_DATA_DIR to override for isolated testing.
+// Override with SOLACE_DATA_DIR for explicit isolation. In development, prefer
+// the repo-local dev-data tree when present so local runs keep using seeded data.
 const getBaseDir = (): string => {
-  const override = process.env.NEKOMIMI_DATA_DIR
+  const override = process.env.SOLACE_DATA_DIR ?? process.env.NEKOMIMI_DATA_DIR
   if (override && override.trim().length > 0) {
     return path.resolve(override)
   }
 
+  const candidateDevDataDirs = app.isPackaged
+    ? [
+        ...(process.env.APPIMAGE ? [path.resolve(path.dirname(process.env.APPIMAGE), '..', 'dev-data')] : []),
+        path.resolve(path.dirname(app.getPath('exe')), '..', 'dev-data'),
+        path.resolve(path.dirname(app.getPath('exe')), '..', '..', 'dev-data'),
+      ]
+    : [path.resolve(process.cwd(), 'dev-data')]
+
+  for (const candidate of candidateDevDataDirs) {
+    if (fs.existsSync(candidate)) {
+      return candidate
+    }
+  }
+
   const defaultBase = path.join(app.getPath('home'), '.local', 'share', APP_NAME)
+  const legacyBase = path.join(app.getPath('home'), '.local', 'share', 'nekomimi')
+
+  if (fs.existsSync(legacyBase) && !fs.existsSync(defaultBase)) {
+    return legacyBase
+  }
 
   try {
     const stat = fs.lstatSync(defaultBase)
