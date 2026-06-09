@@ -13,10 +13,11 @@ import {
   validateGameLaunchConfig,
 } from './game-launch-hooks'
 import { shouldUseXXMI, launchGameWithXXMI } from './mod-manager'
+import { getGameModConfig } from './game-registry'
 import { ProcessMonitor, type ProcessMonitorEntry } from './process-monitor'
 import { assertPreflightForLaunch } from './preflight'
 import { findSteamrt, downloadSteamrt } from './steamrt'
-import { expandHome } from './paths'
+import { expandHome, getPathsInstance } from './paths'
 import { ensureLsfgConfig, injectLsfgEnvironment, validateLsfgRuntime } from './frame-generation'
 import {
   cleanupStandaloneWwmiRuntime,
